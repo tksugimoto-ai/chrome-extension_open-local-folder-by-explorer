@@ -10,7 +10,7 @@ it('converts characters in the BMP', () => {
 	assert.equal(decodeUtf16le(convertToUtf16(str)), str);
 });
 
-it.expectFailure('converts surrogate pairs', () => {
+it('converts surrogate pairs', () => {
 	const str = 'C:\\𠮷\\host-app';
 	assert.equal(decodeUtf16le(convertToUtf16(str)), str);
 });
