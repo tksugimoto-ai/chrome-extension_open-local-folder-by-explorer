@@ -4,7 +4,6 @@
  * @returns {Uint16Array}
  */
 export const convertToUtf16 = str => {
-	const codePointArray = Array.from(str).map(c => c.codePointAt(0));
-	// TODO: Supports surrogate pairs (if codePoint is greater than 0xFFFF)
-	return new Uint16Array(codePointArray);
+	// Use UTF-16 code units (not code points) to keep surrogate pairs
+	return Uint16Array.from({ length: str.length }, (_, i) => str.charCodeAt(i));
 };
